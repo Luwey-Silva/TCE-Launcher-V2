@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="icon" type="image/png" href="./img/logo.png" style='border-radius: 50%;' />
+   <title>TCE_Laucher</title>
+</head>
+
+<body>
+
+
+   <div class="container mt-5 pt-5 justify-content-end">
+
+      <div class="row d-flex justify-content-center">
+         <div class="col-md-9 cartao">
+
+            <div class="row">
+               <div class="col-md-12 d-flex justify-content-end">
+                  <label class="switch">
+                     <input type="checkbox" id='dark'>
+                     <span class="slider round">
+                        <i class="fa fa-moon-o" aria-hidden="true"></i>
+                        <i class="fa fa-sun-o" aria-hidden="true"></i>
+                     </span>
+                  </label>
+               </div>
+            </div>
+
+            <div class="row mt-3">
+               <div class="col-md-12 d-flex justify-content-center">
+                  <h2 class="text-color">TCE Launcher</h2>
+               </div>
+            </div>
+
+            <div class="row d-flex justify-content-center align-items-center">
+
+               <div class="col-md-12 mt-4">
+
+                  
+
+                  <div class="row d-flex justify-content-center ">
+                     <div class="col-md-12 d-flex justify-content-center">
+                        <a class="btn btn-style w-100 mb-5 mt-auto" href="index.html">
+                           Weiter
+                           <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                     </div>
+                  </div>
+
+                  
+                  <div>
+                     <div>
+                        <a>
+                            <button type="button" class="btn btn-style btn-lg btn-block" onclick="exit()">
+                                <i class="fa fa-window-close" aria-hidden="true"></i>
+                              Beenden
+                            </button>
+                            <script>
+                              function exit() { pywebview.api.destroy() }
+                            </script>    
+                        </a>
+                     </div>
+                  </div>
+
+                  <div>
+                     <footer>
+                        <img id="logo-footer" src="./img/logo_teachccom.svg" alt="">
+                     </footer>
+                  </div>
+
+               </div>
+            </div>
+
+         </div>
+      </div>
+
+   </div>
+
+
+   <script>
+      const html = document.querySelector('html')
+      const checkbox = document.querySelector('#dark')
+      const deezerLofi = document.querySelector('#deezer-lofi')
+      const deezerMelhores = document.querySelector('#deezer-melhores')
+
+
+      checkbox.addEventListener('change', () => {
+         html.classList.toggle('dark-mode')
+         if (checkbox.checked) {
+            let srcDark = deezerLofi.getAttribute('src').replace('light', 'dark')
+            deezerLofi.setAttribute('src', srcDark)
+            let srcDark2 = deezerMelhores.getAttribute('src').replace('light', 'dark')
+            deezerMelhores.setAttribute('src', srcDark2)
+         } else {
+            let srcLight = deezerLofi.getAttribute('src').replace('dark', 'light')
+            deezerLofi.setAttribute('src', srcLight)
+            let srcLight2 = deezerMelhores.getAttribute('src').replace('dark', 'light')
+            deezerMelhores.setAttribute('src', srcLight2)
+         }
+
+      })
+   </script>
+
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>
